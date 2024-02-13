@@ -1,44 +1,33 @@
 ---
-title: "Alcohol vs Seat choice"
-author: "Your Name"
-date: "Fall 2020"
+title: "W_UP_03"
+author: "Dr. J"
+date: "2024-02-13"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tigerstats)
+library(tidyverse)
+davisdata=read.csv('UCDavis.csv')
 ```
 
-```{r include=FALSE}
-require(tidyverse)
-require(tigerstats)
-davisdata <- read.csv(file="UCDavis.csv")
-```
-## Our Goal is to answer this question Is there a difference between the alcohol consumed between the row
-## you choose to sit in??
+# Introduction
 
-## Now with ggplot - first select the basic data
+The research question is this: is there a difference in the average amount of alcohol consumed per week by students who sit in row 1, row 2 or row3 of the UCdavis classroom
+
+$H_0$: There is no difference between the average number of drinks imbibed between people based on the row they sit in.
+
+$H_A$: The average number drinks is different between at least two rows.   
+
+
+# Methods
+
+Data from UC Davis: Seat is categorical, and alcohol is numerical, so we use the Numerical~Cat helper file
+
+# Description
+## graphical description
 
 ```{r}
-basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
+boxplot(alcohol~Seat,data=davisdata)
 ```
-## Now add in boxplot
-
-```{r}
-basicCN + geom_boxplot()
-```
-  
-  
-### get fancy  
-
-```{r}
-basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
-```
-
-## Numerical Summarys 
-
-## Inferential Tests
-
-## Conclusions
-
-
