@@ -31,3 +31,11 @@ Data from UC Davis: Seat is categorical, and alcohol is numerical, so we use the
 ```{r}
 boxplot(alcohol~Seat,data=davisdata)
 ```
+
+## numerical description
+
+
+## inferential description
+
+
+# Conclusions and Discussion
